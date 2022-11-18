@@ -1,0 +1,17 @@
+.title {
+    padding-top: 20%;
+}
+
+.all {
+    margin:0 auto;
+    width : 25%;
+}
+
+.container {
+    width: 100%;
+    align-items: center;
+}
+
+.button {
+    background-color: #A66CFF;
+}
