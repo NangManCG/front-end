@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 
 import { 
   getAuth,
@@ -22,15 +22,22 @@ import {
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
   const auth = getAuth(app);
-
-  const firestore = getFirestore();
+  const firestore = getFirestore(app);
 
 //Email 회원가입
-export const signUpEmail = async (email, password) => {
+export const signUpEmail = async (username, email, password) => {
   try {
     const { user } = await createUserWithEmailAndPassword(auth, email, password);
+    console.log("회원가입 성공");
     const { stsTokenManager, uid } = user;
-    setAuthInfo({ uid, email, authToken: stsTokenManager });
+    console.log(uid);
+    const docRef = await addDoc(collection(firestore, "User"), {
+      name : username,
+      email : email
+    });
+    console.log(docRef.id);
+    alert("회원가입 성공했습니다.");
+    location.href='/login';
   } catch (error) {
     
   }
