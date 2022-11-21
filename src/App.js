@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Login from './screens/Login'
 import Join from './screens/Join'
 import Todolist from './screens/To-do-list/Todolist'
+import MyCalendar from './screens/Calendar'
 function App() {
   return (
     <Router>
@@ -29,6 +30,13 @@ function App() {
               </ul>
               <ul className="navbar-nav">
                 <li className="nav-item">
+                  <Link className="nav-link" to={'/Calendar'}>
+                    Calendar
+                  </Link>
+                </li>
+              </ul>
+              <ul className="navbar-nav">
+                <li className="nav-item">
                   <Link className="nav-link" to={'/To-DoList'}>
                     To-Do List
                   </Link>
@@ -43,6 +51,7 @@ function App() {
               <Route exact path="/" element={<Login />} />
               <Route path="/Login" element={<Login />} />
               <Route path="/Join" element={<Join />} />
+              <Route path="/Calendar" element={<MyCalendar />} />
               <Route path="/To-DoList" element={<Todolist />} />
             </Routes>
           </div>
