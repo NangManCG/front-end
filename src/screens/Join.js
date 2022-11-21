@@ -4,11 +4,14 @@ import { signUpEmail } from '../firebase';
 import { auth } from '../firebase';
 export default class Join extends Component {
   state = {
+    registerFirstName : "",
+    registerLastName : "",
+    registerFullName : "",
     registerEmail : "",
     registerPassword : ""
   }
-  signUpEmail = (registerEmail, registerPassword) => {
-    signUpEmail(registerEmail, registerPassword);
+  signUpEmail = (registerFullName, registerEmail, registerPassword) => {
+    signUpEmail(registerFullName, registerEmail, registerPassword);
   }
   render() {
     return (
@@ -21,12 +24,16 @@ export default class Join extends Component {
             type="text"
             className="form-control"
             placeholder="First name"
-            id="firstName"
+            onChange={(e) => this.setState({registerFirstName : e.target.value})}
           />
         </div>
         <div className="mb-3">
           <label>Last name</label>
-          <input type="text" className="form-control" placeholder="Last name" id="lastName"/>
+          <input 
+            type="text" 
+            className="form-control" 
+            placeholder="Last name" 
+            onChange={(e) => this.setState({registerFullName : e.target.value + this.state.registerFirstName})}/>
         </div>
         <div className="mb-3">
           <label>Email address</label>
@@ -47,8 +54,10 @@ export default class Join extends Component {
           />
         </div>
         <div className="d-grid">
-          <button className="btn btn-primary" type="button" onClick={() => 
-            this.signUpEmail(this.state.registerEmail, this.state.registerPassword)}>
+          <button className="btn btn-primary" type="button" onClick={() => {
+            this.signUpEmail(this.state.registerFullName, this.state.registerEmail, this.state.registerPassword)
+            }
+            }>
             Sign Up
           </button>
         </div>

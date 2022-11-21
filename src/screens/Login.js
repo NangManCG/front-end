@@ -52,8 +52,10 @@ export default class Login extends Component {
           </div>
         </div>
         <div className="d-grid">
-          <button className="btn btn-warning" onClick={() =>
+          <button className="btn btn-warning" onClick={() =>{
             this.signInEmail(this.state.loginEmail, this.state.loginPassword)
+            alert("로그인 성공했습니다");
+            }
           }>
             Submit
           </button>
