@@ -15,3 +15,9 @@
 .button {
     background-color: #A66CFF;
 }
+
+.TodoList li.on em 
+{color: rgb(199, 197, 197); text-decoration: line-through rgb(159, 127, 231);}
+
+.TodoList li button 
+{float: right; border: none; color: rgb(148, 181, 230); }
