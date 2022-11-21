@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Login from './screens/Login'
 import Join from './screens/Join'
 import Todolist from './screens/To-do-list/Todolist'
+import Home from './screens/Home'
+import { auth } from './firebase';
 function App() {
   return (
     <Router>
@@ -40,7 +42,7 @@ function App() {
         <div className="auth-wrapper">
           <div className="auth-inner">
             <Routes>
-              <Route exact path="/" element={<Login />} />
+              <Route exact path="/Home" element={<Home />} />
               <Route path="/Login" element={<Login />} />
               <Route path="/Join" element={<Join />} />
               <Route path="/To-DoList" element={<Todolist />} />

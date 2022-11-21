@@ -1,7 +1,17 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import '../styles/Login.css'
-
+import { auth } from '../firebase';
+import { signInEmail } from '../firebase';
 export default class Login extends Component {
+  state = {
+    loginEmail : "",
+    loginPassword : ""
+  }
+  signInEmail = () => {
+    signInEmail(this.loginEmail, this.loginPassword)
+    history.pushState(null, null, "/home")
+  }
   render() {
     return (
     <div className='all'>
@@ -15,6 +25,7 @@ export default class Login extends Component {
             type="email"
             className="form-control"
             placeholder="Enter email"
+            onChange={(e) => this.setState({loginEmail : e.target.value})}
           />
         </div>
         <br/>
@@ -25,6 +36,7 @@ export default class Login extends Component {
             type="password"
             className="form-control"
             placeholder="Enter password"
+            onChange={(e) => this.setState({loginPassword : e.target.value})}
           />
         </div>
         <div className="mb-3">
@@ -40,7 +52,11 @@ export default class Login extends Component {
           </div>
         </div>
         <div className="d-grid">
-          <button type="submit" class="btn btn-warning">
+          <button className="btn btn-warning" onClick={() =>{
+            this.signInEmail(this.state.loginEmail, this.state.loginPassword)
+            alert("로그인 성공했습니다");
+            }
+          }>
             Submit
           </button>
         </div>
