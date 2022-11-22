@@ -50,7 +50,7 @@ export const signInEmail = async (email, password) => {
     const { user } = await signInWithEmailAndPassword(auth, email, password);
     const { stsTokenManager, uid } = user;
     setAuthInfo({ uid, email, authToken: stsTokenManager });
-    navigate('/');
+    navigate('/'); 
   } catch (error) {
       
     }
