@@ -34,10 +34,10 @@ export const signUpEmail = async (username, email, password) => {
     const docRef = await addDoc(collection(firestore, "User"), {
       name : username,
       email : email
-    });
+    });  
     console.log(docRef.id);
     alert("회원가입 성공했습니다.");
-    location.href='/login';
+    window.location.href='/login';
   } catch (error) {
     
   }
@@ -49,8 +49,8 @@ export const signInEmail = async (email, password) => {
   try {
     const { user } = await signInWithEmailAndPassword(auth, email, password);
     const { stsTokenManager, uid } = user;
-    setAuthInfo({ uid, email, authToken: stsTokenManager });
-    navigate('/');
+    //setAuthInfo({ uid, email, authToken: stsTokenManager });
+    //navigate('/');
   } catch (error) {
       
     }

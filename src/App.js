@@ -4,8 +4,9 @@ import './App.css'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Login from './screens/Login'
 import Join from './screens/Join'
-import Home from './screens/Home'
-import { auth } from './firebase';
+import Todolist from './screens/To-do-list/Todolist'
+import MyCalendar from './screens/Calendar'
+
 function App() {
   return (
     <Router>
@@ -30,6 +31,13 @@ function App() {
               </ul>
               <ul className="navbar-nav">
                 <li className="nav-item">
+                  <Link className="nav-link" to={'/Calendar'}>
+                    Calendar
+                  </Link>
+                </li>
+              </ul>
+              <ul className="navbar-nav">
+                <li className="nav-item">
                   <Link className="nav-link" to={'/To-DoList'}>
                     To-Do List
                   </Link>
@@ -41,9 +49,11 @@ function App() {
         <div className="auth-wrapper">
           <div className="auth-inner">
             <Routes>
-              <Route exact path="/Home" element={<Home />} />
+              <Route exact path="/" element={<Login />} />
               <Route path="/Login" element={<Login />} />
               <Route path="/Join" element={<Join />} />
+              <Route path="/Calendar" element={<MyCalendar />} />
+              <Route path="/To-DoList" element={<Todolist />} />
             </Routes>
           </div>
         </div>
