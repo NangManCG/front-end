@@ -1,12 +1,15 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js";
-import { getFirestore, collection, addDoc} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, where, getDocs} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+
 
 import { 
   getAuth,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword
+  GoogleAuthProvider,
+  signInWithRedirect
 } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+import React, { useTransition, useState, useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
 
   const firebaseConfig = {
     apiKey: "AIzaSyCujx70yw4RdiyT0qByjrqkmFfdUIhZ7Fo",
@@ -23,7 +26,8 @@ import {
   const analytics = getAnalytics(app);
   const auth = getAuth(app);
   const firestore = getFirestore(app);
-
+  const provider = new GoogleAuthProvider(app);
+  const userRef = collection(firestore, "User");
 //Email 회원가입
 export const signUpEmail = async (username, email, password) => {
   try {
@@ -31,11 +35,11 @@ export const signUpEmail = async (username, email, password) => {
     console.log("회원가입 성공");
     const { stsTokenManager, uid } = user;
     console.log(uid);
-    const docRef = await addDoc(collection(firestore, "User"), {
+    const userRef = await addDoc(collection(firestore, "User"), {
       name : username,
-      email : email
+      email : email,
+      uid : uid
     });  
-    console.log(docRef.id);
     alert("회원가입 성공했습니다.");
     window.location.href='/login';
   } catch (error) {
@@ -47,14 +51,16 @@ export const signUpEmail = async (username, email, password) => {
   //Email 로그인
 export const signInEmail = async (email, password) => {
   try {
-    const { user } = await signInWithEmailAndPassword(auth, email, password);
-    const { stsTokenManager, uid } = user;
-    //setAuthInfo({ uid, email, authToken: stsTokenManager });
-    //navigate('/');
-  } catch (error) {
-      
+    const query = query(collection(firebase, "User"), where("email", "==", email));
+
+    } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorMessage);
     }
 };
 
+  export { signInWithRedirect };
+  export { provider };
   export { firestore };
   export { auth };
