@@ -18,20 +18,26 @@ function App() {
             <div className="collapse navbar-collapse justify-content-between" id="navbarTogglerDemo02">
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                  <Link className="nav-link" to={'/Login'}>
-                    Login
+                  <Link className="nav-link" to={'/Todo'}>
+                    To-Do List
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to={'/Join'}>
-                    Sign up
+                  <Link className="nav-link" to={'/Calendar'}>
+                    Calendar
                   </Link>
                 </li>
               </ul>
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <Link className="nav-link" to={'/To-DoList'}>
-                    To-Do List
+                  <Link className="nav-link" to={'/Login'}>
+                    Login
+                  </Link>
+                </li>
+                <li>
+                  
+                <Link className="nav-link" to={'/Logout'}>
+                    Logout
                   </Link>
                 </li>
               </ul>

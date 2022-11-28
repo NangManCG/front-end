@@ -10,12 +10,12 @@ function Header() {
                 </li>
                 <li class="nav-item">
                     <div class="nav-link">
-                        <Link to="/login">Login</Link>
+                        <Link to="/Calendar">Calendar</Link>
                     </div>
                 </li>
                 <li class="nav-item">
                     <div class="nav-link">
-                        <Link to="/join">Join</Link>
+                        <Link to="/Todo">Todo</Link>
                     </div>
                 </li>
             </ul>
