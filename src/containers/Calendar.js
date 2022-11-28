@@ -1,7 +1,7 @@
 import React, {useReducer} from 'react';
 import Modal from "./Modal";
-import calendarReducer from "./reducer/CalendarReducer";
-import MakeCalendar from "../module/MakeCalendar";
+import calendarReducer from "./reducer/CalendarReducer"
+import MakeCalendar from "../module/MakeCalendar"
 
 
 const today = new Date()

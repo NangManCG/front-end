@@ -1,38 +1,49 @@
-import React, { useState, useEffect, Component } from 'react';
-import { signInEmail, signInGoogle } from '../../firebase';
-import '../../style/Login.css'
-import { auth, signInWithRedirect, provider } from '../../firebase';
-import { GoogleAuthProvider } from 'firebase/auth';
-export default class Login extends Component {
-  state = {
-    loginEmail : "",
-    loginPassword : ""
-  }
+import React, { Component } from 'react';
+import '../../style/Login.css';
 
+export default class Login extends Component {
   render() {
     return (
     <div className='all'>
-    <h3 className='title'>Login</h3>
-        <div className="d-grid">
-          <button className="btn btn-warning" onClick={ () =>{
-             signInWithRedirect(auth, provider).then((result) => {
-              const credential = GoogleAuthProvider.credentialFromResult(result);
-              const token = credential.accessToken;
-              const user = result.user;
-              user.providerData.forEach((profile) => {
-                console.log(profile.providerId);
-              })
-              })
-              window.location.href = '/Calendar'
-              }}
->
-            Submit
-          </button>
+      <div className='container'>
+      <h3 className='title'>Login</h3>
+      <br/><hr/>
+      <form className='form'>
+        &nbsp;&nbsp;
+        <div className="mb-3">
+          <label>Email address</label>
+          <br/><br/>
+          <input
+            type="email"
+            className="form-control"
+            placeholder="Enter email"
+            onChange={(e) => this.setState({loginEmail : e.target.value})}
+          />
         </div>
-        <p className="forgot-password text-right">
-          Forgot <a href="#">password?</a>
-        </p>
+        <br/>
+        <div className="mb-3">
+          <label>Password</label>
+          <br/><br/>
+          <input
+            type="password"
+            className="form-control"
+            placeholder="Enter password"
+            onChange={(e) => this.setState({loginPassword : e.target.value})}
+          />
+        </div>
+
+        <div className="d-grid">
+          <button className="button" onClick={() =>{
+            this.signInEmail(this.state.loginEmail, this.state.loginPassword)
+            alert("로그인 성공했습니다");
+            }
+          }>
+            Log In</button>
+        </div>
+      </form>
+      </div>
     </div>
+
     )
   }
 }

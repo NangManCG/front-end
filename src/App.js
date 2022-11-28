@@ -3,6 +3,7 @@ import "./style/Calendar.css";
 import "./style/Table.css";
 import "./style/Modal.css"
 import "./style/Login.css";
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Login from './containers/sign/Login';
 import Join from './containers/sign/Join';

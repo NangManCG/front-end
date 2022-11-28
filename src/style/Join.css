@@ -1,5 +1,5 @@
 .title {
-    padding-top: 20%;
+    padding-top: 10%;
     font-weight: bold;
 }
 
@@ -37,3 +37,9 @@
     font-weight: bold;
     padding-top: 5%;
 }
+
+/*.container {
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    width: 200px;
+}*/

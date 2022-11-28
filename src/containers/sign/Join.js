@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import '../../style/Login.css';
+import '../../style/Join.css';
 export default class Join extends Component {
   state = {
     registerFirstName : "",
@@ -8,11 +8,13 @@ export default class Join extends Component {
     registerEmail : "",
     registerPassword : ""
   }
+  
   render() {
     return (
       <form>
         <div className="all">
         <h3 className="title">Sign Up</h3>
+        <br/><hr/>
         <div className="mb-3">
           <label>First name</label>
           <input
@@ -49,16 +51,13 @@ export default class Join extends Component {
           />
         </div>
         <div className="d-grid">
-          <button className="btn btn-primary" type="button" onClick={() => {
-            window.location.href = '/login';
-          }
-        }>
+          <button className="button" onClick={() => {
+            this.signUpEmail(this.state.registerFullName, this.state.registerEmail, this.state.registerPassword)
+            }
+            }>
             Sign Up
           </button>
         </div>
-        <p className="forgot-password text-right">
-          Already registered <a href="/login">sign in?</a>
-        </p>
         </div>
       </form>
     )

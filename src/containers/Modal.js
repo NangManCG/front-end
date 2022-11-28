@@ -1,8 +1,8 @@
 import React, { useCallback, useReducer} from 'react';
-import Picker from "../component/Picker";
-import Style from "../module/Style";
-import ModalReducer from "./reducer/ModalReducer";
-import CalcDate from '../module/CalcDate';
+import Picker from "../component/Picker"
+import Style from "../module/Style"
+import ModalReducer from "../containers/reducer/ModalReducer"
+import CalcDate from '../module/CalcDate'
 
 const Modal = ({index, visible, onConfirm, onCancel}) => {
     const initialState = {
