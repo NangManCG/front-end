@@ -72,7 +72,7 @@ const Modal = ({index, visible, onConfirm, onCancel}) => {
     if (!visible) return null;
     return (
         <div className="fullscreen">
-            <div className="modal">
+            <div className="myModal">
                 <p>{index}</p>
                 <div className="input">
                 <input placeholder="일정" value={todo} onChange={onChange} onKeyPress={onKeyPress}></input>
@@ -87,7 +87,7 @@ const Modal = ({index, visible, onConfirm, onCancel}) => {
                     { check === true &&
                     <div className="day">
                         <div className="end-day">
-                            <input type="text" onChange={onTodos} placeholder="2021.10.13"/>
+                            <input type="text" onChange={onTodos} placeholder={new Date()}/>
                         </div>
                     </div>
                     }

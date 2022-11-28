@@ -2,7 +2,7 @@ import React, {useReducer} from 'react';
 import Modal from "./Modal";
 import calendarReducer from "./reducer/CalendarReducer";
 import MakeCalendar from "../module/MakeCalendar";
-
+import '../style/Modal.css';
 
 const today = new Date()
 
@@ -72,6 +72,7 @@ const Calendar = () => {
 
     return (
         <>
+         <Modal index= {index} visible={visible} onConfirm={onConfirm} onCancel={onCancel}/>
             <div className="Calendar">
                 <div className="header">
                     <button className="move" onClick={onDecreases}>&lt;</button>
@@ -94,8 +95,8 @@ const Calendar = () => {
                     {MakeCalendar({year, month ,firstDay, lastDate, changeVisible, todo, })}
                     </tbody>
                 </table>
-                <Modal index= {index} visible={visible} onConfirm={onConfirm} onCancel={onCancel}/>
             </div>
+           
         </>
     )
 }

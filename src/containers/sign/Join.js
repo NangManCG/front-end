@@ -1,5 +1,6 @@
 import React, { Component, useState } from 'react';
-import '../../style/Login.css';
+import '../../style/Join.css';
+import {Link} from 'react-router-dom';
 export default class Join extends Component {
   state = {
     registerFirstName : "",
@@ -49,12 +50,11 @@ export default class Join extends Component {
           />
         </div>
         <div className="d-grid">
-          <button className="btn btn-primary" type="button" onClick={() => {
-            window.location.href = '/login';
-          }
-        }>
+            <Link to="/Login">
+          <button className="button">
             Sign Up
           </button>
+          </Link>
         </div>
         <p className="forgot-password text-right">
           Already registered <a href="/login">sign in?</a>

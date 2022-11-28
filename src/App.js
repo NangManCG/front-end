@@ -1,19 +1,37 @@
-import React from "react";
-import "./style/Calendar.css";
+import React, {Component} from "react";
 import "./style/Table.css";
 import "./style/Modal.css"
 import "./style/Login.css";
+import "./App.css";
+import "./style/Theme.css";
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Login from './containers/sign/Login';
 import Join from './containers/sign/Join';
 import ToDoTemp from './containers/ToDo/ToDoTemplate';
 import Calendar from './containers/Calendar';
+import Header from './Header';
+import ToDoList from './containers/ToDo/ToDoList';
+  
+class App extends Component {
 
-const App = () => {
+  state = {darkMode : true}
+
+  render() {
   return (
     <Router>
-    <div className="App">
-      <nav className="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <div className={this.state.darkMode ? "dark-mode" : "light-mode"}>
+      <button className="dark-mode-button" onClick = {
+        () => {
+          if (this.state.darkMode) {
+            this.setState({darkMode : !this.state.darkMode})
+          }
+          else {
+            this.setState({darkMode : !this.state.darkMode})
+          }
+        }
+      }>{this.state.darkMode ? "dark" : "light"}</button>
+      <Header className="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
         <div className="container">
           <Link className="navbar-brand" to={'/Home'}>
             Home
@@ -47,21 +65,22 @@ const App = () => {
             </ul>
           </div>
         </div>
-      </nav>
+      </Header>
       <div className="auth-wrapper">
         <div className="auth-inner">
           <Routes>
-            <Route exact path="/" element={<Login />} />
+            <Route exact path="/" element={<Join />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/Join" element={<Join />} />
             <Route path="/Calendar" element={<Calendar />} />
-            <Route path="/To-DoList" element={<ToDoTemp />} />
+            <Route path="/To-DoList" element={<ToDoList />} />
           </Routes>
         </div>
       </div>
     </div>
-  </Router>
+  </Router> 
   );
+}
 }
 
 export default App;

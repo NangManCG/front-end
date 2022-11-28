@@ -27,7 +27,7 @@ function ToDoList({ todos, onRemove, onToggle, onChangeSelectedTodo, onInsertTog
       className='TodoList'
       width={512} // 전체너비
       height={513}// 전체 높이
-      rowCount={length}//항목갯수
+      rowCount={todos.length}//항목갯수
       rowHeight={57} // 항목 높이
       rowRenderer={rowRender} //항목을 렌더링할 때 쓰는 함수
       list={todos}//배열

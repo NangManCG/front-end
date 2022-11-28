@@ -3,36 +3,54 @@ import { signInEmail, signInGoogle } from '../../firebase';
 import '../../style/Login.css'
 import { auth, signInWithRedirect, provider } from '../../firebase';
 import { GoogleAuthProvider } from 'firebase/auth';
+import {Link} from 'react-router-dom';
 export default class Login extends Component {
-  state = {
-    loginEmail : "",
-    loginPassword : ""
-  }
+    state = {
+        loginEmail : "",
+        loginPassword : ""
+      }
 
-  render() {
-    return (
-    <div className='all'>
-    <h3 className='title'>Login</h3>
-        <div className="d-grid">
-          <button className="btn btn-warning" onClick={ () =>{
-             signInWithRedirect(auth, provider).then((result) => {
-              const credential = GoogleAuthProvider.credentialFromResult(result);
-              const token = credential.accessToken;
-              const user = result.user;
-              user.providerData.forEach((profile) => {
-                console.log(profile.providerId);
-              })
-              })
-              window.location.href = '/Calendar'
-              }}
->
-            Submit
-          </button>
+      render() {
+        return (
+        <div className='all'>
+          <div className='container'>
+          <h3 className='title'>Login</h3>
+          <br/><hr/>
+          <form className='form'>
+            &nbsp;&nbsp;
+            <div className="mb-3">
+              <label>Email address</label>
+              <br/><br/>
+              <input
+                type="email"
+                className="form-control"
+                placeholder="Enter email"
+                onChange={(e) => this.setState({loginEmail : e.target.value})}
+              />
+            </div>
+            <br/>
+            <div className="mb-3">
+              <label>Password</label>
+              <br/><br/>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Enter password"
+                onChange={(e) => this.setState({loginPassword : e.target.value})}
+              />
+            </div>
+    
+            <div className="d-grid">
+                <Link to="/Calendar">
+              <button className="button">
+                Log In</button>
+                </Link>
+            </div>
+          </form>
+          </div>
         </div>
-        <p className="forgot-password text-right">
-          Forgot <a href="#">password?</a>
-        </p>
-    </div>
-    )
-  }
+    
+        )
+      }
+    
 }

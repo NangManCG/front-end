@@ -1,7 +1,8 @@
 import {Link} from 'react-router-dom'
+import '../src/style/Header.css';
 function Header() {
     return (
-        <div>
+        <div className = "navbar">
             <ul class="nav">
                 <li class="nav-item">
                     <div class="nav-link active">

@@ -27,8 +27,12 @@ table tbody td {
     white-space : nowrap;
     text-overflow: ellipsis;
 }
-td:first-child, td:last-child {
+td:first-child {
     color: red;
+}
+
+td:last-child {
+    color: blue;
 }
 
 table tbody td div {
