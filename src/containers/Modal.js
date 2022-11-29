@@ -1,8 +1,9 @@
-import React, { useCallback, useReducer} from 'react';
+import React, { useState, useCallback, useReducer} from 'react';
 import Picker from "../component/Picker";
 import Style from "../module/Style";
 import ModalReducer from "./reducer/ModalReducer";
 import CalcDate from '../module/CalcDate';
+import App from '../App';
 
 const Modal = ({index, visible, onConfirm, onCancel}) => {
     const initialState = {
@@ -68,11 +69,10 @@ const Modal = ({index, visible, onConfirm, onCancel}) => {
         changeColor('')
     }
 
-
     if (!visible) return null;
     return (
         <div className="fullscreen">
-            <div className="myModal">
+            <div className={(document.body.style.color=="ivory") ? "myModal-dark" : "myModal-light"}>
                 <p>{index}</p>
                 <div className="input">
                 <input placeholder="일정" value={todo} onChange={onChange} onKeyPress={onKeyPress}></input>

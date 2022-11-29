@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+
+}
+
+Link {
+  text-decoration:none; 
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -15,8 +20,9 @@
 .dark-mode-button {
   position:absolute;
   top:50px;
-  right:0px;
-}
+  right:50px;
+  z-index:1049;
+} 
 
 @keyframes App-logo-spin {
   from {

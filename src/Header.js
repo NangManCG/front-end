@@ -6,17 +6,12 @@ function Header() {
             <ul class="nav">
                 <li class="nav-item">
                     <div class="nav-link active">
-                        <Link to="/">Home</Link>
+                        <Link to="/" style={{ textDecoration: "none" }}>Home</Link>
                     </div>
                 </li>
                 <li class="nav-item">
                     <div class="nav-link active" aria-current="page">
-                        <Link to="/Calendar">Calendar</Link>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <div class="nav-link">
-                        <Link to="/To-DoList">Todo</Link>
+                        <Link to="/Calendar" style={{ textDecoration: "none" }}>Calendar</Link>
                     </div>
                 </li>
             </ul>

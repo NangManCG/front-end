@@ -1,10 +1,12 @@
-import React, {useReducer} from 'react';
+import React, {useReducer, useState} from 'react';
 import Modal from "./Modal";
 import calendarReducer from "./reducer/CalendarReducer";
 import MakeCalendar from "../module/MakeCalendar";
 import '../style/Modal.css';
+import '../style/Calendar.css';
 
 const today = new Date()
+
 
 // 초기 상태
 const initialState = {
@@ -74,10 +76,9 @@ const Calendar = () => {
         <>
          <Modal index= {index} visible={visible} onConfirm={onConfirm} onCancel={onCancel}/>
             <div className="Calendar">
-                <div className="header">
-                    <button className="move" onClick={onDecreases}>&lt;</button>
-                    <p>{yearMonth}</p>
-                    <button className="move" onClick={onIncreases}>&gt;</button>
+                <div className="calender-top">
+                        <button className="move" onClick={onDecreases} style={{backgroundColor:"rgb(0,0,0,0)"}}>&lt;</button> {yearMonth}
+                    <button className="move" onClick={onIncreases} style={{backgroundColor:"rgb(0,0,0,0)"}}>&gt;</button>
                 </div>
                 <table>
                 <thead>
