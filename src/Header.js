@@ -14,6 +14,11 @@ function Header() {
                         <Link to="/Calendar" style={{ textDecoration: "none" }}>Calendar</Link>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <div class="nav-link active" aria-current="page">
+                        <Link to="/Todo" style={{ textDecoration: "none" }}>To-Do List</Link>
+                    </div>
+                </li>
             </ul>
         </div>
     )

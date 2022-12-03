@@ -8,11 +8,15 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Login from './containers/sign/Login';
 import Join from './containers/sign/Join';
 import Calendar from './containers/Calendar';
+import ToDo from './containers/ToDo/ToDo';
 import Header from './Header';
   
 class App extends Component {
 
-  state = {darkMode : false}
+  state = {
+    darkMode : false,
+    todos : []
+  }
 
   componentDidMount() {
     if (this.state.darkMode) {
@@ -54,6 +58,7 @@ class App extends Component {
             <Route path="/Login" element={<Login />} />
             <Route path="/Join" element={<Join />} />
             <Route path="/Calendar" element={<Calendar />} />
+            <Route path="/ToDo" element={<ToDo />}/>
           </Routes>
         </div>
       </div>
